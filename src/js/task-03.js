@@ -16,14 +16,11 @@ const images = [
 const galleryListRef = document.querySelector(".gallery");
 
 let imagesRef = images.map((image) => {
-	const itemRef = document.createElement("li");
 	const values = Object.values(image);
-	const innerDataStringHTML = `<img class = "gallery-image" src="${values[0]}" alt="${values[1]}" />`;
-	itemRef.insertAdjacentHTML("afterbegin", innerDataStringHTML);
-
-	return itemRef;
+	const innerDataStringHTML = `<li><img class = "gallery-image" src="${values[0]}" alt="${values[1]}" /></li>`;
+	return innerDataStringHTML;
 });
-
-galleryListRef.append(...imagesRef);
+console.log(imagesRef);
+galleryListRef.insertAdjacentHTML("afterbegin", imagesRef.join(""));
 
 // console.log(imagesRef);
